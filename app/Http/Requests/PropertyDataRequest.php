@@ -2,39 +2,34 @@
 
 namespace App\Http\Requests;
 
-use App\Models\PropertyData;
-use Illuminate\Contracts\Validation\ValidationRule;
+use App\Http\Requests\Traits\ListRequestTrait;
+use Illuminate\Foundation\Http\FormRequest;
 
-class PropertyDataRequest extends BaseListRequest
+class PropertyDataRequest extends FormRequest
 {
+    use ListRequestTrait;
 
-    protected array $perPageOptions = [10, 50];
-    protected array $sortableFields = PropertyData::SORT_FIELDS;
+    protected function getPerPageOptions(): array
+    {
+        return [10, 50];
+    }
 
-    /**
-     * Determine if the user is authorized to make this request.
-     */
+    protected function getSortableFields(): array
+    {
+        return ['name', 'price', 'created_at'];
+    }
+
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, ValidationRule|array|string>
-     */
     public function rules(): array
     {
         return array_merge(
             $this->paginationRules(),
             $this->sortingRules(),
             [
-                'name' => 'sometimes|nullable|string',
-                'bedrooms' => 'sometimes|nullable|integer|min:0',
-                'bathrooms' => 'sometimes|nullable|integer|min:0',
-                'storeys' => 'sometimes|nullable|integer|min:0',
-                'garages' => 'sometimes|nullable|integer|min:0',
                 'min_price' => 'sometimes|nullable|numeric|min:0',
                 'max_price' => 'sometimes|nullable|numeric|min:0|gte:min_price',
             ]

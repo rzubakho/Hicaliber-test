@@ -15,7 +15,8 @@ class PropertyDataFilter extends ModelFilter
 
     public function sortBy(string $sortBy): self
     {
-        return $this->orderBy($this->input('sort_by'), $this->input('order_by'));
+        $orderDirection = $this->input('order_by', 'asc');
+        return $this->orderBy($sortBy, $orderDirection);
     }
 
     public function name(?string $name): void
