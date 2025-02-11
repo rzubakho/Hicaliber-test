@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PropertyDataController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('property-data', [PropertyDataController::class, 'index']);

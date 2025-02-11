@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use EloquentFilter\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class PropertyData extends Model
 {
-    use HasFactory;
+    use HasFactory, Filterable;
     protected $fillable = [
         'name',
         'price',
@@ -25,4 +26,13 @@ class PropertyData extends Model
         'garages' => 'integer',
     ];
 
+    public const SORT_FIELDS = [
+        'id',
+        'name',
+    ];
+    public const SORT_DEFAULT = [
+        'sort_by' => 'id',
+        'order_by' => 'asc',
+        'per_page' => 10,
+    ];
 }
