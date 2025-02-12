@@ -50,7 +50,7 @@ export default {
     },
     methods: {
         loadMore() {
-            if (this.meta.current_page < this.meta.last_page) {
+            if (this.meta.current_page < this.meta.last_page && !this.loading && this.items.length) {
                 this.$emit("load-more", this.meta.current_page + 1);
             }
         },

@@ -63,7 +63,7 @@
                                 type="number"
                                 placeholder="Min"
                                 min="0"
-                                @input="clearError('min_price')"
+                                @input="() => {clearError('max_price'); clearError('min_price');}"
                             ></el-input>
                         </el-form-item>
                     </el-col>
@@ -75,7 +75,7 @@
                                 type="number"
                                 placeholder="Max"
                                 min="0"
-                                @input="clearError('max_price')"
+                                @input="() => {clearError('max_price'); clearError('min_price');}"
                             ></el-input>
                         </el-form-item>
                     </el-col>

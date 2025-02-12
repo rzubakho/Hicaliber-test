@@ -28,7 +28,9 @@ import PropertyDataService from "@/services/property-data.service";
 import { debounce } from 'lodash';
 export default {
     name: "PropertyDataPage",
+
     components: {PropertyDataFilters, PropertyDataList },
+
     data() {
         return {
             items: [],
@@ -56,6 +58,7 @@ export default {
             this.meta.current_page = 1;
             this.fetchNextPageDebounce();
         },
+
         fetchNextPageDebounce: debounce(function fetchNextPage(page = this.meta.current_page || 1) {
             this.loading = true;
             this.meta.page = page;

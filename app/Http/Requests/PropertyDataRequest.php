@@ -36,7 +36,19 @@ class PropertyDataRequest extends FormRequest
                 'storeys' => 'sometimes|nullable|integer|min:0',
                 'garages' => 'sometimes|nullable|integer|min:0',
                 'min_price' => 'sometimes|nullable|numeric|min:0',
-                'max_price' => 'sometimes|nullable|numeric|min:0|gte:min_price',
+                'max_price' => [
+                    'sometimes',
+                    'nullable',
+                    'numeric',
+                    'min:0',
+                    function ($attribute, $value, $fail) {
+                        $minPrice = $this->input('min_price');
+
+                        if (!is_null($minPrice) && $value < $minPrice) {
+                            $fail($attribute . ' must be greater than or equal to min price.');
+                        }
+                    },
+                ],
             ]
         );
     }

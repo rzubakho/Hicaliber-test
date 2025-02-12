@@ -24,12 +24,12 @@ class PropertyDataFilter extends ModelFilter
         $this->where('name', 'like', "%$name%");
     }
 
-    public function priceMin(int $price): void
+    public function minPrice(int $price): void
     {
         $this->where('price', '>=', $price);
     }
 
-    public function priceMax(int $price): void
+    public function maxPrice(int $price): void
     {
         $this->where('price', '<=', $price);
     }
