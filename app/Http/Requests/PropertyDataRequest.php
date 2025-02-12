@@ -30,6 +30,11 @@ class PropertyDataRequest extends FormRequest
             $this->paginationRules(),
             $this->sortingRules(),
             [
+                'name' => 'sometimes|nullable|string',
+                'bedrooms' => 'sometimes|nullable|integer|min:0',
+                'bathrooms' => 'sometimes|nullable|integer|min:0',
+                'storeys' => 'sometimes|nullable|integer|min:0',
+                'garages' => 'sometimes|nullable|integer|min:0',
                 'min_price' => 'sometimes|nullable|numeric|min:0',
                 'max_price' => 'sometimes|nullable|numeric|min:0|gte:min_price',
             ]

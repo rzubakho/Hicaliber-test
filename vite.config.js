@@ -9,6 +9,12 @@ export default defineConfig({
         }),
         vue2()
     ],
+    resolve: {
+        alias: {
+            '@': '/resources/js',
+            '@modules': '/resources/js/modules',
+        },
+    },
     server: {
         host: '0.0.0.0',
         port: 5173,

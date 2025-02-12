@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Laravel + Vue 2 + Vite</title>
+    <title>Test app</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
