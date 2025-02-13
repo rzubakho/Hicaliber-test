@@ -1,28 +1,34 @@
 ## Test task
 This project was implemented as part of a test assignment from the company HICALIBER.
 
+####
+![alt text](https://raw.githubusercontent.com/rzubakho/Hicaliber-test/refs/heads/dev/hicaliber-test.jpg
+)
+####
+
 ## Project Setup
 
 ### Requirements
 
+- Docker
 - PHP >= 8.2
 - MySQL >= 8.0
 - Composer
 - npm
-- Docker
+
 
 ### Installation
 
 Clone the repository:
 
 ```bash
-git clone `${repo}`
+git clone https://github.com/rzubakho/Hicaliber-test.git
 ```
 
 After cloning, navigate to the project directory.
 
 ```bash
-cd `${directory}`
+cd Hicaliber-test
 ```
 
 ## Start the Docker Environment
